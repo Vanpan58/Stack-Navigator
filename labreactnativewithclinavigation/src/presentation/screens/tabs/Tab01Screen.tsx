@@ -1,11 +1,11 @@
 import  {Text, View} from "react-native";
 
-const HomeScreen = () => {
+const Tab01Screen = () => {
     return (
         <View>
-            <Text>Home-Screen</Text>
+            <Text>Tab01-Screen</Text>
         </View>
     )
 }
 
-export default HomeScreen;
+export default Tab01Screen;
