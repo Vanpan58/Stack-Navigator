@@ -1,8 +1,10 @@
 import  {Text, View} from "react-native";
-import { globalStyles } from "../../theme/theme";
 import { FlatList } from "react-native-gesture-handler";
+import HomeScreen from "../home/HomeScreen";
+import { globalStyles } from "../../theme/theme";
 import PrimaryButton from "../../components/PrimaryButton";
-import { useNavigation } from "@react-navigation/native";
+import { type NavigationProp, useNavigation } from "@react-navigation/native";
+import { type RootStackParams } from "../../route/StackNavigator";
 
 const productos = [
 
@@ -16,7 +18,7 @@ const productos = [
   ];
 
 const ProductsScreen = () => {
-    const navigation = useNavigation();
+    const navigation = useNavigation<NavigationProp<RootStackParams>>();
     
     return (
         <View style={globalStyles.container}>
@@ -27,7 +29,7 @@ const ProductsScreen = () => {
            renderItem={
             ({item}) => (
                 <PrimaryButton
-                 onPress={() => {navigation.navigate('Product' as never)}}
+                onPress={() => {navigation.navigate('Product', {id: item.id, name:item.name,  price:item.price, category:item.category})}}
                  label={item.name}
                  />
              )
